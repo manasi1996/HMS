@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:/Users/Pc/Music/New folder/report_upload.py", line 267, in <module>
+    vp_start_gui()
+  File "C:/Users/Pc/Music/New folder/report_upload.py", line 28, in vp_start_gui
+    top = Toplevel1 (root)
+  File "C:/Users/Pc/Music/New folder/report_upload.py", line 154, in __init__
+    self.Button1.bind('<Button-1>',report_upload_support.submit)
+AttributeError: module 'report_upload_support' has no attribute 'submit'
