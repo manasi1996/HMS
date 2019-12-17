@@ -7,7 +7,6 @@
 #    Dec 11, 2019 10:34:06 AM IST  platform: Windows NT
 #    Dec 11, 2019 10:35:28 AM IST  platform: Windows NT
 #    Dec 11, 2019 10:38:15 AM IST  platform: Windows NT
-#    Dec 16, 2019 11:55:58 AM -0800  platform: Windows NT
 
 import sys
 
@@ -21,10 +20,6 @@ try:
     py3 = False
 except ImportError:
     import tkinter.ttk as ttk
-
-def cardio():
-    print('after_regn_support.cardio')
-    sys.stdout.flush()
 
 def treport():
     print('after_regn_support.treport')
@@ -45,6 +40,7 @@ def destroy_window():
 if __name__ == '__main__':
     import after_regn
     after_regn.vp_start_gui()
+
 
 
 

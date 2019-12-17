@@ -11,6 +11,7 @@ try:
     import Tkinter as tk
 except ImportError:
     import tkinter as tk
+    
 
 try:
     import ttk
@@ -38,6 +39,8 @@ def login(self):
     rows=c.fetchall()
     if len(row)==1:
         after_regn.vp_start_gui()
+    conn.commit()
+    conn.close()
     sys.stdout.flush()
 
 def signin(self):

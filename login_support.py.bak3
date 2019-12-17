@@ -11,6 +11,7 @@ try:
     import Tkinter as tk
 except ImportError:
     import tkinter as tk
+    import after_regn
 
 try:
     import ttk
@@ -24,7 +25,6 @@ def set_Tk_var():
     var1 = tk.StringVar()
 
 def login(self):
-    import after_regn
     global w,var1
     userid=w.user_id.get()
     passwd=w.pwd.get()
@@ -32,12 +32,14 @@ def login(self):
     import mysql.connector as mysql
     conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
     c=conn.cursor()
-    task=(userid,passwd,usertype)
+    task=(userid,passwd)
     sqlstat="""SELECT USERNAME FROM HOSPITAL WHERE USERID=? AND USERPASS=?""" 
     c.execute(sqlstat,task)
     rows=c.fetchall()
     if len(row)==1:
         after_regn.vp_start_gui()
+    conn.commit()
+    conn.close()
     sys.stdout.flush()
 
 def signin(self):

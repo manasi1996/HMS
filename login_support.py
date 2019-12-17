@@ -11,6 +11,7 @@ try:
     import Tkinter as tk
 except ImportError:
     import tkinter as tk
+    
 
 try:
     import ttk
@@ -33,10 +34,10 @@ def login(self):
     conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
     c=conn.cursor()
     task=(userid,passwd)
-    sqlstat="""SELECT USERNAME FROM HOSPITAL WHERE USERID=? AND USERPASS=?""" 
+    sqlstat="""SELECT USERNAME FROM HOSPITAL WHERE USERID=%s AND USERPASS=%s""" 
     c.execute(sqlstat,task)
     rows=c.fetchall()
-    if len(row)==1:
+    if len(rows)==1:
         after_regn.vp_start_gui()
     conn.commit()
     conn.close()
