@@ -8,6 +8,7 @@
 #    Dec 11, 2019 10:35:28 AM IST  platform: Windows NT
 #    Dec 11, 2019 10:38:15 AM IST  platform: Windows NT
 #    Dec 16, 2019 11:55:58 AM -0800  platform: Windows NT
+#    Dec 17, 2019 07:22:15 PM -0800  platform: Windows NT
 
 import sys
 
@@ -21,6 +22,10 @@ try:
     py3 = False
 except ImportError:
     import tkinter.ttk as ttk
+
+def newro():
+    print('after_regn_support.newro')
+    sys.stdout.flush()
 
 def cardio():
     print('after_regn_support.cardio')

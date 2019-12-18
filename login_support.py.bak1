@@ -37,7 +37,7 @@ def login(self):
     sqlstat="""SELECT USERNAME FROM HOSPITAL WHERE USERID=%s AND USERPASS=%s""" 
     c.execute(sqlstat,task)
     rows=c.fetchall()
-    if len(row)==1:
+    if len(rows)==1:
         after_regn.vp_start_gui()
     conn.commit()
     conn.close()

@@ -1,0 +1,20 @@
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Tamal Panda\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+  File "C:\Users\Tamal Panda\Documents\mansiHMS\HMS\login_support.py", line 28, in login
+    import after_regn
+  File "C:\Users\Tamal Panda\Documents\mansiHMS\HMS\after_regn.py", line 72
+    command=after_regn_support.{},
+                               ^
+SyntaxError: invalid syntax
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Tamal Panda\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+  File "C:\Users\Tamal Panda\Documents\mansiHMS\HMS\login_support.py", line 28, in login
+    import after_regn
+  File "C:\Users\Tamal Panda\Documents\mansiHMS\HMS\after_regn.py", line 72
+    command=after_regn_support.{},
+                               ^
+SyntaxError: invalid syntax

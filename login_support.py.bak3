@@ -11,7 +11,7 @@ try:
     import Tkinter as tk
 except ImportError:
     import tkinter as tk
-    import after_regn
+    
 
 try:
     import ttk
@@ -25,6 +25,7 @@ def set_Tk_var():
     var1 = tk.StringVar()
 
 def login(self):
+    import after_regn
     global w,var1
     userid=w.user_id.get()
     passwd=w.pwd.get()
