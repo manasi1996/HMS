@@ -1,0 +1,42 @@
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+TypeError: neuro() takes 0 positional arguments but 1 was given
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+TypeError: neuro() takes 0 positional arguments but 1 was given
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+TypeError: neuro() takes 0 positional arguments but 1 was given
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+TypeError: neuro() takes 0 positional arguments but 1 was given
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+  File "C:\Users\Pc\Documents\GitHub\HMS\after_regn_support.py", line 23, in cardio
+    print('after_regn_support.cardio')
+TypeError: print() takes 0 positional arguments but 1 was given
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+TypeError: neuro() takes 0 positional arguments but 1 was given
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+TypeError: neuro() takes 0 positional arguments but 1 was given
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
+    return self.func(*args)
+TypeError: neuro() takes 0 positional arguments but 1 was given
