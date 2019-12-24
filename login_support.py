@@ -6,6 +6,7 @@
 #    Dec 09, 2019 01:12:03 PM IST  platform: Windows NT
 
 import sys
+import after_regn
 
 try:
     import Tkinter as tk
@@ -19,26 +20,37 @@ try:
 except ImportError:
     import tkinter.ttk as ttk
     py3 = True
-
+uid=345
 def set_Tk_var():
     global var1
     var1 = tk.StringVar()
 
 def login(self):
     import after_regn
-    global w,var1
+    global w,var1,uid
     userid=w.user_id.get()
+    uid=userid
+    print(uid)
     passwd=w.pwd.get()
-    usertype=var1.get()
+
+    usertype=int(var1.get())
+    if usertype == 0:
+       usertype='normal'
+    else:
+       usertype='staff'
     import mysql.connector as mysql
     conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
     c=conn.cursor()
-    task=(userid,passwd)
-    sqlstat="""SELECT USERNAME FROM HOSPITAL WHERE USERID=%s AND USERPASS=%s""" 
+    print(usertype)
+    task=(userid,passwd,usertype)
+    sqlstat="""SELECT USERNAME FROM HOSPITAL WHERE USERID=%s AND USERPASS=%s AND USERTYPE=%s""" 
     c.execute(sqlstat,task)
     rows=c.fetchall()
+    
     if len(rows)==1:
         after_regn.vp_start_gui()
+    else:
+        pass
     conn.commit()
     conn.close()
     sys.stdout.flush()
