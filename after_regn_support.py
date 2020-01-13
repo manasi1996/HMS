@@ -15,6 +15,7 @@
 #    Dec 23, 2019 11:14:49 AM IST  platform: Windows NT
 #    Dec 23, 2019 11:17:17 AM IST  platform: Windows NT
 #    Dec 23, 2019 11:19:25 AM IST  platform: Windows NT
+#    Jan 12, 2020 09:55:26 PM IST  platform: Windows NT
 
 import sys
 import login_support
@@ -33,6 +34,11 @@ try:
 except ImportError:
     import tkinter.ttk as ttk
     py3 = True
+
+def log_out():
+    print('after_regn_support.log_out')
+    sys.stdout.flush()
+
 def nero():
     global w
     d_type="neurology"
@@ -55,7 +61,7 @@ def nero():
 
 def cardo():
     global w,uid
-    d_type="cardio"
+    d_type="cardiology"
     import mysql.connector as mysql
     conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
     c=conn.cursor()
@@ -193,6 +199,22 @@ def p_details():
 
  
 def show():
+    global w,uid
+    import mysql.connector as mysql
+    conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
+    c=conn.cursor()
+    task=(uid,)
+    sqlstat="""SELECT * FROM PRESCRIPTION WHERE USER_ID=%S"""
+    c.execute(sqlstat,task)
+    rows=c.fetchall()
+    count=1;
+    for row in rows:
+        w.Listbox1.insert(count,row)
+        #value=listbox.get(listbox.curselection())
+        #print(value)
+        count+=1
+    conn.commit()
+    conn.close() 
     print('after_regn_support.show')
     sys.stdout.flush()
 

@@ -1,9 +1,10 @@
-12000002
+user1
 normal
-Exception in Tkinter callback
-Traceback (most recent call last):
-  File "C:\Users\Pc\Anaconda3\lib\tkinter\__init__.py", line 1705, in __call__
-    return self.func(*args)
-  File "C:\Users\Pc\Documents\GitHub\HMS\after_regn_support.py", line 110, in doc_select
-    docd.append(uid)
-NameError: name 'uid' is not defined
+user1
+normal
+user1
+normal
+user1
+normal
+user1
+normal
