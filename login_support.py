@@ -26,11 +26,14 @@ def set_Tk_var():
     var1 = tk.StringVar()
 
 def login(self):
+    from tkinter import messagebox
     import after_regn
-    global w,var1,uid
+    global w,var1,uid,x
     userid=w.user_id.get()
     uid=userid
     print(uid)
+    x=uid
+    print("value of x is from login:" + str(x))
     passwd=w.pwd.get()
 
     usertype=int(var1.get())
@@ -47,29 +50,43 @@ def login(self):
     c.execute(sqlstat,task)
     rows=c.fetchall()
     
+        
     if len(rows)==1:
+        with open("config_t.py","w") as fp:
+            fp.write("x=" + str(x))
         after_regn.vp_start_gui()
     else:
-        pass
+        messagebox.showerror("error","incorrect password")
     conn.commit()
     conn.close()
     sys.stdout.flush()
 
 def signin(self):
+    from tkinter import messagebox
     global w
     username=w.new_user_name.get()
     phone=w.new_user_ph.get()
-    import mysql.connector as mysql
-    conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
-    c=conn.cursor()
-    passwd="passwd123"
-    type="normal"
-    task=(username,passwd,phone,type)
-    sqlstat="""INSERT INTO HOSPITAL(USERNAME,USERPASS,USERPH,USERTYPE)VALUES(%s,%s,%s,%s)"""
-    c.execute(sqlstat,task)
-    conn.commit()
-    conn.close() 
-    sys.stdout.flush()
+    if len(phone)<10 or phone.isdigit()==False:
+        messagebox.showwarning("warning","enter a valid phone number")
+    else:
+        import mysql.connector as mysql
+        conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
+        c=conn.cursor()
+        passwd="passwd123"
+        type="normal"
+        task=(username,passwd,phone,type)
+        sqlstat="""INSERT INTO HOSPITAL(USERNAME,USERPASS,USERPH,USERTYPE)VALUES(%s,%s,%s,%s)"""
+        c.execute(sqlstat,task)
+        conn.commit()
+        sqlstat="""SELECT userid,userpass FROM HOSPITAL WHERE USERNAME=%s AND USERPASS=%s AND USERTYPE=%s"""
+        task=(username,passwd,type)
+        c.execute(sqlstat,task)
+        rows=c.fetchall()
+        conn.close()
+        for row in rows:
+            message="Data is successfully inserted" + str(row[0]) + str(row[1]) 
+        messagebox.showinfo("information",message)
+        sys.stdout.flush()
 
 def init(top, gui, *args, **kwargs):
     global w, top_level, root

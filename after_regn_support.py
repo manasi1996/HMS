@@ -16,6 +16,7 @@
 #    Dec 23, 2019 11:17:17 AM IST  platform: Windows NT
 #    Dec 23, 2019 11:19:25 AM IST  platform: Windows NT
 #    Jan 12, 2020 09:55:26 PM IST  platform: Windows NT
+#    Feb 10, 2020 12:00:13 PM IST  platform: Windows NT
 
 import sys
 import login_support
@@ -35,9 +36,13 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
-def log_out():
-    print('after_regn_support.log_out')
+def logout():
+    root.destroy()
+   
     sys.stdout.flush()
+   
+
+   
 
 def nero():
     global w
@@ -50,6 +55,7 @@ def nero():
     c.execute(sqlstat,task)
     rows=c.fetchall()
     count=1;
+    w.Listbox1.delete(0,'end')
     for row in rows:
         w.Listbox1.insert(count,row)
         #value=listbox.get(listbox.curselection())
@@ -63,6 +69,7 @@ def cardo():
     global w,uid
     d_type="cardiology"
     import mysql.connector as mysql
+    import config_t
     conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
     c=conn.cursor()
     task=(d_type,)
@@ -70,12 +77,15 @@ def cardo():
     c.execute(sqlstat,task)
     rows=c.fetchall()
     count=1;
+    w.Listbox1.delete(0,'end')
     for row in rows:
         w.Listbox1.insert(count,row)
         #value=listbox.get(listbox.curselection())
         #print(value)
         count+=1
     conn.commit()
+    from config_t import x 
+    print("value of x is" + str(x))
     conn.close() 
     sys.stdout.flush()
 
@@ -94,6 +104,7 @@ def ent():
     c.execute(sqlstat,task)
     rows=c.fetchall()
     count=1;
+    w.Listbox1.delete(0,'end')
     for row in rows:
         w.Listbox1.insert(count,row)
         #value=listbox.get(listbox.curselection())
@@ -106,6 +117,8 @@ def ent():
 def doc_select(evt):
     global w,uid
     import mysql.connector as mysql
+    from config_t import x
+    uid=x
     conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
     c=conn.cursor()
     value=w.Listbox1.get(w.Listbox1.curselection())
@@ -120,6 +133,7 @@ def doc_select(evt):
     c.execute(sqlstat,task)
     conn.commit()
     conn.close()
+    w.Listbox1.delete(0,'end')
     sys.stdout.flush()
 
 def go_to_doc():
@@ -140,6 +154,7 @@ def gyne():
     c.execute(sqlstat,task)
     rows=c.fetchall()
     count=1;
+    w.Listbox1.delete(0,'end')
     for row in rows:
         w.Listbox1.insert(count,row)
         #value=listbox.get(listbox.curselection())
@@ -164,6 +179,7 @@ def ophth():
     c.execute(sqlstat,task)
     rows=c.fetchall()
     count=1;
+    w.Listbox1.delete(0,'end')
     for row in rows:
         w.Listbox1.insert(count,row)
         #value=listbox.get(listbox.curselection())
@@ -184,6 +200,7 @@ def orth():
     c.execute(sqlstat,task)
     rows=c.fetchall()
     count=1;
+    w.Listbox1.delete(0,'end')
     for row in rows:
         w.Listbox1.insert(count,row)
         #value=listbox.get(listbox.curselection())
