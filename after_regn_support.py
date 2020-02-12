@@ -115,6 +115,7 @@ def ent():
     sys.stdout.flush()
 
 def doc_select(evt):
+    import appointment_confirm 
     global w,uid
     import mysql.connector as mysql
     from config_t import x
@@ -134,6 +135,7 @@ def doc_select(evt):
     conn.commit()
     conn.close()
     w.Listbox1.delete(0,'end')
+    appointment_confirm.vp_start_gui()
     sys.stdout.flush()
 
 def go_to_doc():

@@ -22,7 +22,17 @@ except ImportError:
     py3 = True
 
 def check():
-    print('staff_report_support.check')
+    global w
+    userid=w.user_id.get()
+    import mysql.connector as mysql
+    conn=mysql.connect(host="localhost",user="root",passwd="",database="mysqldb")
+    c=conn.cursor()
+   
+    task=(userid,)
+    sqlstat="""SELECT SR_NO,T_NAME,DATE,TIME,PAY,PAY_CONFIRM FROM TEST WHERE USER_ID=%s"""
+    c.execute(sqlstat,task)
+    conn.commit()
+    conn.close() 
     sys.stdout.flush()
 
 def staff_confirmation():
@@ -72,6 +82,7 @@ def destroy_window():
 if __name__ == '__main__':
     import staff_report
     staff_report.vp_start_gui()
+
 
 
 
